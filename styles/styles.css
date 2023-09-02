@@ -1,0 +1,99 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+a,
+button {
+  cursor: revert;
+}
+ol,
+ul,
+menu {
+  list-style: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
+button {
+  font-size: 2rem;
+  min-width: 2rem;
+  height: 3rem;
+  margin: 0.2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+.button-double-vertical {
+  min-height: 6.4rem;
+}
+
+.border {
+  /* border: 1px solid red; */
+  border: 1px darkblue solid;
+  border-radius: 0.2rem;
+}
+
+.wrapper-main-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  max-width: 30rem;
+  border: green 1px solid;
+}
+
+.wrapper-main-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 80%;
+  min-height: 60%;
+  flex-direction: column;
+
+  /* flex-grow: 1; */
+}
+
+.wrapper-screen {
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  width: 100%;
+  /* border: 1px solid blue; */
+  padding: 1rem;
+  margin-bottom: 0.2rem;
+}
+.screen {
+  display: flex;
+  justify-content: end;
+  padding-top: 0.5rem;
+  height: 2rem;
+}
+.screen-upper {
+  font-size: 1rem;
+}
+.screen-lower {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.wrapper-buttons {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0.1rem;
+  /* flex-grow: 1; */
+}
+.wrapper-button-column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
