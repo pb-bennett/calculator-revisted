@@ -4,6 +4,8 @@ const screenLowerElement = document.querySelector(".screen-lower");
 
 const data = {};
 
+const operatorArr = ["÷", "+", "×", "-"];
+
 const resetData = () => {
   data.upperString = "";
   data.lowerString = "0";
@@ -20,7 +22,7 @@ const updateScreen = () => {
 };
 
 const operatorClickHandler = (input) => {
-  console.log(input);
+  // console.log(input);
   switch (input) {
     case "C": {
       resetData();
@@ -31,11 +33,20 @@ const operatorClickHandler = (input) => {
         data.lowerString = "0";
         break;
       }
+      if (operatorArr.includes(data.lowerString[data.lowerString.length - 1]))
+        data.currentOperator = "";
       data.lowerString = data.lowerString.slice(0, -1);
       console.log(data);
       break;
     }
     case "±": {
+      if (data.lowerString === "0") return;
+      if (data.lowerString[0] === "-") {
+        data.lowerString = data.lowerString.substr(1);
+        break;
+      }
+      data.lowerString = `-${data.lowerString}`;
+      break;
     }
     case ".": {
       if (data.lowerString.includes(".")) break;
@@ -43,8 +54,17 @@ const operatorClickHandler = (input) => {
       break;
     }
     case "=": {
+      break;
     }
     default: {
+      if (data.lowerString === "0") return;
+      if (data.lowerString[data.lowerString.length - 1] === ".")
+        data.lowerString = data.lowerString.slice(0, -1);
+      if (operatorArr.includes(data.lowerString[data.lowerString.length - 1]))
+        data.lowerString = `${data.lowerString.slice(0, -1)}${input}`;
+      else {
+        data.lowerString = `${data.lowerString}${input}`;
+      }
       data.currentOperator = input;
     }
   }
